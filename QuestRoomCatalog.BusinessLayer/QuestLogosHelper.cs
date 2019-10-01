@@ -12,6 +12,8 @@ namespace QuestRoomCatalog.BusinessLayer
 {
     class QuestLogosHelper
     {
+        //Add construct with IMapper and UnitOfWork parameters
+
         IUnitOfWork<QuestsLogosBO> Db;
         QuestLogosHelper()
         {
@@ -19,8 +21,8 @@ namespace QuestRoomCatalog.BusinessLayer
         }
         public void Create(QuestsLogosBO model)
         {
-            QuestsLogos questLogos = AutoMapper<QuestsLogosBO, QuestLogos>();
-            Db.GenericRepository.Add(questLogos);
+            //QuestsLogos questLogos = AutoMapper
+            //Db.GenericRepository.Add(questLogos);
         }
     }
 }
