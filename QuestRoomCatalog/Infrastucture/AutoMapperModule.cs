@@ -21,7 +21,7 @@ namespace QuestRoomCatalog.Infrastucture
             Mapper.Initialize(cfg =>
             {
                 cfg.ConstructServicesUsing(t => context.Kernel.Get(t));
-                //cfg.
+                cfg.AddProfile<MapperProfiles>();
             });
             return Mapper.Instance;
         }
