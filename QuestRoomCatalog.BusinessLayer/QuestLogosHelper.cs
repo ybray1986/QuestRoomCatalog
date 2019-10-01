@@ -7,22 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuestRoomCatalog;
+using AutoMapper;
 
 namespace QuestRoomCatalog.BusinessLayer
 {
-    class QuestLogosHelper
+    public class QuestLogosHelper: ICrud<QuestsLogosBO>
     {
         //Add construct with IMapper and UnitOfWork parameters
 
-        IUnitOfWork<QuestsLogosBO> Db;
-        QuestLogosHelper()
+        IUnitOfWork<QuestsLogos> Db;
+        public QuestLogosHelper()
         {
-            Db = new UnitOfWork<QuestsLogosBO>();
+            Db = new UnitOfWork<QuestsLogos>();
         }
-        public void Create(QuestsLogosBO model)
+        public QuestLogosHelper(UnitOfWork<QuestsLogos> modelParam)
         {
-            //QuestsLogos questLogos = AutoMapper
-            //Db.GenericRepository.Add(questLogos);
+            Db = modelParam;
+        }
+        public void Create(QuestsLogosBO modelParam)
+        {
+            QuestsLogos questLogos = Mapper.Map<QuestsLogos>(modelParam);
+            if (modelParam.Id == 0)
+            {
+                Db.GenericRepository.Add(questLogos);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<QuestsLogosBO> Read()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(QuestsLogosBO model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

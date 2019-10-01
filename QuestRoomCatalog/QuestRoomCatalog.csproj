@@ -230,6 +230,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastucture\AutoMapperModule.cs" />
+    <Compile Include="Infrastucture\MapperProfiles.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -301,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helper\" />
     <Folder Include="Views\QuestRoom\" />
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +317,10 @@
     <ProjectReference Include="..\QuestRoomCatalog.BusinessLayer\QuestRoomCatalog.BusinessLayer.csproj">
       <Project>{82c1fa32-bea2-4f83-8123-4f07ae7e9110}</Project>
       <Name>QuestRoomCatalog.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuestRoomCatalog.DataLayer\QuestRoomCatalog.DataLayer.csproj">
+      <Project>{ADDB917E-86A0-4889-A3F8-EF08D6B18F09}</Project>
+      <Name>QuestRoomCatalog.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

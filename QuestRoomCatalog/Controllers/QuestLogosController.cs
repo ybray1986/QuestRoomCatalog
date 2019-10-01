@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using QuestRoomCatalog.BusinessLayer.BusinessObjects;
+using QuestRoomCatalog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +11,17 @@ namespace QuestRoomCatalog.Controllers
 {
     public class QuestLogosController : Controller
     {
+        IMapper mapper;
+        public QuestLogosController( IMapper mapperParam)
+        {
+            mapper = mapperParam;
+        }
         // GET: QuestLogos
         public ActionResult Index()
         {
-            return View();
+            var QLBO = mapper.ServiceCtor.Invoke(typeof(QuestsLogosBO));
+            var QuestLogosView = (QLBO as QuestsLogosBO).Add().Select(t=>mapper.Map<QuestLogosViewModel>(t)).FirstOrDefault();
+            return View(QuestLogosView);
         }
 
         // GET: QuestLogos/Details/5

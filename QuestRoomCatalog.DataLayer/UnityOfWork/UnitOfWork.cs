@@ -86,7 +86,10 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
                 if (disposing)
                 {
                     // TODO: освободить управляемое состояние (управляемые объекты).
-
+                    if (db != null)
+                    {
+                        db.Dispose();
+                    }
                 }
 
                 // TODO: освободить неуправляемые ресурсы (неуправляемые объекты) и переопределить ниже метод завершения.
