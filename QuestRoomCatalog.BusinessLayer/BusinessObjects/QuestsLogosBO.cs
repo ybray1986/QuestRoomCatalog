@@ -20,7 +20,7 @@ namespace QuestRoomCatalog.BusinessLayer.BusinessObjects
             mapper = mapperParam;
         }
         private IMapper mapper;
-        public IEnumerable<QuestsLogosBO> Add()
+        public IEnumerable<QuestsLogosBO> GetBOList()
         {
             List<QuestsLogosBO> questLogosList = new List<QuestsLogosBO>();
             using (var unitOfWork = UnitOfWorkFactory.Create())
