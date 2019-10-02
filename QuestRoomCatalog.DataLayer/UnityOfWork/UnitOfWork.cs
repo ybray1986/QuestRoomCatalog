@@ -4,76 +4,80 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using QuestRoomCatalog.DataLayer.Repository;
+using QuestRoomCatalog.DataLayer.UnityOfWork;
 
-namespace QuestRoomCatalog.DataLayer.UnitOfWork
+namespace QuestRoomCatalog.DataLayer.UnityOfWork
 {
-    public class UnitOfWork<T> : IUnitOfWork<T> where T: class
+    public class UnitOfWork : IUnitOfWork/*<T> where T: class*/
     {
         private readonly DbContext db;
         private bool disposed = false;
 
-        Repository<T> _genericRepository;
+        //Repository<T> _genericRepository;
         public UnitOfWork() { db = new Model1(); }
         public UnitOfWork(string connection)
         {
             db = new Model1(connection);
         }
-
-        public Repository<T> GenericRepository
+        public UnitOfWork(DbContext dbParam)
+        {
+            db = dbParam;
+        }
+        //public Repository<T> GenericRepository
+        //{
+        //    get
+        //    {
+        //        if (this._genericRepository == null)
+        //        {
+        //            _genericRepository = new Repository<T>(db);
+        //        }
+        //        return _genericRepository;
+        //    }
+        //}
+        private Repository<QuestsLogos> _questLogosRepository;
+        public Repository<QuestsLogos> QLogosUowRepository
         {
             get
             {
-                if (this._genericRepository == null)
-                {
-                    _genericRepository = new Repository<T>(db);
-                }
-                return _genericRepository;
+                return _questLogosRepository == null ? new Repository<QuestsLogos>(db) : _questLogosRepository;
             }
         }
 
-        //public Repository<QuestsLogos> QLogosUowRepository
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
+        public Repository<QuestsRooms> QRoomsUowRepository
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-        //public Repository<QuestsRooms> QRoomsUowRepository
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
+        public Repository<Rating> RatingUowRepository
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-        //public Repository<Rating> RatingUowRepository
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
+        public Repository<Roles> RolesUowRepository
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-        //public Repository<Roles> RolesUowRepository
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-        //public Repository<Users> UsersUowRepository
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
+        public Repository<Users> UsersUowRepository
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
 
         #region IDisposable Support
