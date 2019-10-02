@@ -11,7 +11,6 @@ namespace QuestRoomCatalog.DataLayer.UnityOfWork
     public class UnitOfWork : IUnitOfWork/*<T> where T: class*/
     {
         private readonly DbContext db;
-        private bool disposed = false;
 
         //Repository<T> _genericRepository;
         public UnitOfWork() { db = new Model1(); }
@@ -115,8 +114,9 @@ namespace QuestRoomCatalog.DataLayer.UnityOfWork
             // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
             Dispose(true);
             // TODO: раскомментировать следующую строку, если метод завершения переопределен выше.
-            // GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
+
         #endregion
 
 

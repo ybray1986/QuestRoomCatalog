@@ -20,7 +20,7 @@ namespace QuestRoomCatalog.Controllers
         public ActionResult Index()
         {
             var QLBO = mapper.ServiceCtor.Invoke(typeof(QuestsLogosBO));
-            var QuestLogosView = (QLBO as QuestsLogosBO).Add();/*.Select(t=>mapper.Map<QuestLogosViewModel>(t)).FirstOrDefault()*/;
+            var QuestLogosView = (QLBO as QuestsLogosBO).Add().Select(t => mapper.Map<QuestLogosViewModel>(t)).FirstOrDefault();
             return View(QuestLogosView);
         }
 
