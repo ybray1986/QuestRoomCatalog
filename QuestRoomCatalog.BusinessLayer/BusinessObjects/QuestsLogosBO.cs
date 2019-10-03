@@ -9,6 +9,8 @@ namespace QuestRoomCatalog.BusinessLayer.BusinessObjects
 
     public class QuestsLogosBO
     {
+        private IMapper mapper;
+
         public int Id { get; set; }
         public int QuestRoomId { get; set; }
         public byte[] Image { get; set; }
@@ -19,7 +21,6 @@ namespace QuestRoomCatalog.BusinessLayer.BusinessObjects
         {
             mapper = mapperParam;
         }
-        private IMapper mapper;
         public IEnumerable<QuestsLogosBO> GetBOList()
         {
             List<QuestsLogosBO> questLogosList = new List<QuestsLogosBO>();
