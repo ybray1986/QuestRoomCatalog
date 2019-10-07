@@ -12,9 +12,9 @@ namespace QuestRoomCatalog.DataLayer
 
         public int QuestRoomId { get; set; }
 
-        [Required]
-        [MaxLength(1)]
-        public byte[] Image { get; set; }
+        //[Required]
+        //[MaxLength(1)]
+        //public byte[] Image { get; set; }
 
         public bool IsLogo { get; set; }
 

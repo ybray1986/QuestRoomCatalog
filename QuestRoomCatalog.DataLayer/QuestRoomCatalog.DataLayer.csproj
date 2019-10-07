@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201909261333015_First.Designer.cs">
       <DependentUpon>201909261333015_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910071254558_DelImage.cs" />
+    <Compile Include="Migrations\201910071254558_DelImage.Designer.cs">
+      <DependentUpon>201910071254558_DelImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\QuestsLogos.cs" />
@@ -90,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909261333015_First.resx">
       <DependentUpon>201909261333015_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910071254558_DelImage.resx">
+      <DependentUpon>201910071254558_DelImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

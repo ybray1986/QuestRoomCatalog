@@ -9,7 +9,7 @@ namespace QuestRoomCatalog.Models
         public int Id { get; set; }
         public int QuestRoomId { get; set; }
         [Required]
-        public byte[] Image { get; set; }
+        //public byte[] Image { get; set; }
         public bool IsLogo { get; set; }
         //public virtual QuestsRoomsBO QuestsRooms { get; set; }
     }
