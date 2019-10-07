@@ -38,17 +38,17 @@ namespace QuestRoomCatalog.Controllers
 
         // POST: QuestLogos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(QuestLogosViewModel model)
         {
-            try
+            //try
             {
-                // TODO: Add insert logic here
-
+                var questLogosModel = mapper.Map<QuestsLogosBO>(model);
+                questLogosModel.Save();
                 return RedirectToAction("Index");
             }
-            catch
+            //catch
             {
-                return View();
+                //return View();
             }
         }
 
